@@ -1,35 +1,41 @@
 "use client";
 
 import Hero from "@/components/ui/animated-shader-hero";
+import AboutSection from "@/components/about-section";
 import ProjectsSection from "@/components/projects-section";
+import { Footer } from "@/components/ui/footer-section";
 
 export default function Home() {
   return (
     <main>
       <Hero
         trustBadge={{
-          text: "Cyber Operations & Visual Intelligence / Innovation · Barnstable, MA",
+          text: "Cyber Operations & Visual Intelligence / Innovation",
           icons: ["⚡"]
         }}
         headline={{
           line1: "Welcome to",
           line2: "Colby's Portfolio"
         }}
-        subtitle="Seeking Cybersecurity, Software and Systems Engineering opportunities."
+        subtitle="Seeking Cybersecurity & Softeware / System Engineering roles."
         buttons={{
-          primary: {
-            text: "View Projects",
-            onClick: () => {
-              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-            }
-          },
-          secondary: {
-            text: "Contact Me",
-            onClick: () => console.log("contact")
-          }
-        }}
+  primary: {
+    text: "View Projects",
+    onClick: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+  },
+  secondary: {
+    text: "About Me",
+    onClick: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+  },
+  tertiary: {
+    text: "Contact Me",
+    onClick: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  }
+}}
       />
+      <AboutSection />
       <ProjectsSection />
+      <Footer />
     </main>
   );
 }

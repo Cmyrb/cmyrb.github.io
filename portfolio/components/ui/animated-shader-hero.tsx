@@ -1,15 +1,19 @@
-"use client";
 import React, { useRef, useEffect } from 'react';
 
 interface HeroProps {
-  trustBadge?: { text: string; icons?: string[]; };
-  headline: { line1: string; line2: string; };
+  trustBadge?: {
+    text: string;
+    icons?: string[];
+  };
+  headline: {
+    line1: string;
+    line2: string;
+  };
   subtitle: string;
- buttons?: {
-  primary?: { text: string; onClick?: () => void; };
-  secondary?: { text: string; onClick?: () => void; };
-  tertiary?: { text: string; onClick?: () => void; };
-};
+  buttons?: {
+    primary?: { text: string; onClick?: () => void; };
+    secondary?: { text: string; onClick?: () => void; };
+  };
   className?: string;
 }
 
@@ -64,44 +68,54 @@ void main(void) {
 
 const useShaderBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>(0);
+  const animationFrameRef = useRef<number>();
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const gl = canvas.getContext('webgl2');
     if (!gl) return;
+
     const dpr = Math.max(1, 0.5 * window.devicePixelRatio);
+
     const resize = () => {
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
       gl.viewport(0, 0, canvas.width, canvas.height);
     };
     resize();
+
     const vertexSrc = `#version 300 es
 precision highp float;
 in vec4 position;
 void main(){ gl_Position = position; }`;
+
     const createShader = (type: number, src: string) => {
       const shader = gl.createShader(type)!;
       gl.shaderSource(shader, src);
       gl.compileShader(shader);
       return shader;
     };
+
     const vs = createShader(gl.VERTEX_SHADER, vertexSrc);
     const fs = createShader(gl.FRAGMENT_SHADER, defaultShaderSource);
     const program = gl.createProgram()!;
     gl.attachShader(program, vs);
     gl.attachShader(program, fs);
     gl.linkProgram(program);
+
     const buffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+
     const position = gl.getAttribLocation(program, 'position');
     gl.enableVertexAttribArray(position);
     gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+
     const uRes = gl.getUniformLocation(program, 'resolution');
     const uTime = gl.getUniformLocation(program, 'time');
+
     const loop = (now: number) => {
       gl.clearColor(0, 0, 0, 1);
       gl.clear(gl.COLOR_BUFFER_BIT);
@@ -111,8 +125,10 @@ void main(){ gl_Position = position; }`;
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       animationFrameRef.current = requestAnimationFrame(loop);
     };
+
     animationFrameRef.current = requestAnimationFrame(loop);
     window.addEventListener('resize', resize);
+
     return () => {
       window.removeEventListener('resize', resize);
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
@@ -125,6 +141,7 @@ void main(){ gl_Position = position; }`;
 
 const Hero: React.FC<HeroProps> = ({ trustBadge, headline, subtitle, buttons, className = "" }) => {
   const canvasRef = useShaderBackground();
+
   return (
     <div className={`relative w-full h-screen overflow-hidden bg-black ${className}`}>
       <style>{`
@@ -143,20 +160,25 @@ const Hero: React.FC<HeroProps> = ({ trustBadge, headline, subtitle, buttons, cl
         .animation-delay-600  { animation-delay: 0.6s; }
         .animation-delay-800  { animation-delay: 0.8s; }
       `}</style>
+
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full touch-none"
         style={{ background: 'black' }}
       />
+
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
         {trustBadge && (
           <div className="mb-8 animate-fade-in-down">
             <div className="flex items-center gap-2 px-6 py-3 bg-orange-500/10 backdrop-blur-md border border-orange-300/30 rounded-full text-sm">
-              {trustBadge.icons?.map((icon, i) => <span key={i}>{icon}</span>)}
+              {trustBadge.icons?.map((icon, i) => (
+                <span key={i}>{icon}</span>
+              ))}
               <span className="text-orange-100">{trustBadge.text}</span>
             </div>
           </div>
         )}
+
         <div className="text-center space-y-6 max-w-5xl mx-auto px-4">
           <div className="space-y-2">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-fade-in-up animation-delay-200">
@@ -166,39 +188,33 @@ const Hero: React.FC<HeroProps> = ({ trustBadge, headline, subtitle, buttons, cl
               {headline.line2}
             </h1>
           </div>
+
           <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-600">
             <p className="text-lg md:text-xl lg:text-2xl text-orange-100/90 font-light leading-relaxed">
               {subtitle}
             </p>
           </div>
+
           {buttons && (
-  <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 animate-fade-in-up animation-delay-800">
-    {buttons.primary && (
-      <button
-        onClick={buttons.primary.onClick}
-        className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-black rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/25"
-      >
-        {buttons.primary.text}
-      </button>
-    )}
-    {buttons.secondary && (
-      <button
-        onClick={buttons.secondary.onClick}
-        className="px-8 py-4 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-300/30 hover:border-orange-300/50 text-orange-100 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
-      >
-        {buttons.secondary.text}
-      </button>
-    )}
-    {buttons.tertiary && (
-      <button
-        onClick={buttons.tertiary.onClick}
-        className="px-8 py-4 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-300/30 hover:border-orange-300/50 text-orange-100 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
->
-        {buttons.tertiary.text}
-      </button>
-    )}
-  </div>
-)}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 animate-fade-in-up animation-delay-800">
+              {buttons.primary && (
+                <button
+                  onClick={buttons.primary.onClick}
+                  className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-black rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/25"
+                >
+                  {buttons.primary.text}
+                </button>
+              )}
+              {buttons.secondary && (
+                <button
+                  onClick={buttons.secondary.onClick}
+                  className="px-8 py-4 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-300/30 hover:border-orange-300/50 text-orange-100 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                >
+                  {buttons.secondary.text}
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
