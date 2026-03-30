@@ -10,7 +10,7 @@ export default function Home() {
     <main>
       <Hero
         trustBadge={{
-          text: "Cyber Operations & Visual Intelligence / Innovation",
+          text: "Cyber Operations · Boston, MA",
           icons: ["⚡"]
         }}
         headline={{

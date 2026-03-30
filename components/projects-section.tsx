@@ -14,14 +14,14 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Project One",
-    description: "A full-stack web application built with modern technologies. Features real-time updates and a clean user interface.",
+    description: "Details",
     tags: ["React", "Node.js", "PostgreSQL"],
     github: "https://github.com/cmyrb",
     glowColor: "orange",
   },
   {
     title: "Project Two",
-    description: "An algorithmic solution to a complex problem. Optimized for performance with a focus on clean, readable code.",
+    description: "Details",
     tags: ["Python", "FastAPI", "Docker"],
     github: "https://github.com/cmyrb",
     live: "#",
@@ -29,7 +29,7 @@ const projects: Project[] = [
   },
   {
     title: "Project Three",
-    description: "A mobile-first responsive web app. Built with accessibility and performance as core requirements.",
+    description: "Details",
     tags: ["TypeScript", "Next.js", "Tailwind"],
     github: "https://github.com/cmyrb",
     live: "#",

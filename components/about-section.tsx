@@ -6,15 +6,15 @@ const slides = [
     name: "Who I Am",
     designation: "Colby Myrbeck",
     quote:
-      "A fourth year Cyber Operations & Visual Intelligence / Innovation major. ",
-    src: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop",
+      "I’m a hands-on problem solver with experience in mechanical work, security, and technical projects. As a college student and former collegiate athlete, communicate clearly and effectively under pressure and adapt quickly to new challenges.",
+    src: "/PortfolioHS.jpg",
   },
   {
     name: "Academic background",
     designation: "Stonehill College",
     quote:
-      "I've pursued computer science with a focus on software engineering fundamentals — data structures, algorithms, systems design, and full-stack development.",
-    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format&fit=crop",
+      "I've pursued computer science with a focus on cyber operations — Programming, Operating Systems, Data Structures, Discrete Mathematics, Theory of Computation, Cybersecurity. Interdisciplinary Concentration: Criminology, Machine Learning, Image Processing, Image Deconstruction ",
+    src: "/PortfolioST.jpg",
   },
   {
     name: "What are you doing here",
