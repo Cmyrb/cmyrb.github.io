@@ -126,7 +126,7 @@ void main(){ gl_Position = position; }`;
 const Hero: React.FC<HeroProps> = ({ trustBadge, headline, subtitle, buttons, className = "" }) => {
   const canvasRef = useShaderBackground();
   return (
-    <div className={`relative w-full h-screen overflow-hidden bg-black ${className}`}>
+    <div className={`relative w-full h-screen bg-black  ${className}`}>
       <style>{`
         @keyframes fade-in-down {
           from { opacity: 0; transform: translateY(-20px); }
