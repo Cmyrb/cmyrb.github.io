@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/components/ui/animated-shader-hero";
+import ProjectsSection from "@/components/projects-section";
 
 export default function Home() {
   return (
@@ -8,17 +9,19 @@ export default function Home() {
       <Hero
         trustBadge={{
           text: "Cyber Operations & Visual Intelligence / Innovation · Barnstable, MA",
-          
+          icons: ["⚡"]
         }}
         headline={{
           line1: "Welcome to",
           line2: "Colby's Portfolio"
         }}
-        subtitle="Currently looking for new opportunities in Cybersecurity & Software / Platform engineering."
+        subtitle="Seeking Cybersecurity, Software and Systems Engineering opportunities."
         buttons={{
           primary: {
             text: "View Projects",
-            onClick: () => console.log("projects")
+            onClick: () => {
+              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+            }
           },
           secondary: {
             text: "Contact Me",
@@ -26,6 +29,7 @@ export default function Home() {
           }
         }}
       />
+      <ProjectsSection />
     </main>
   );
 }
