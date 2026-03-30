@@ -10,12 +10,11 @@ const slides = [
     src: "/PortfolioHS.jpg",
   },
   {
-    name: "Academic background",
-    designation: "Stonehill College",
-    quote:
-      "I've pursued computer science with a focus on cyber operations — Programming, Operating Systems, Data Structures, Discrete Mathematics, Theory of Computation, Cybersecurity. Interdisciplinary Concentration: Criminology, Machine Learning, Image Processing, Image Deconstruction ",
-    src: "/PortfolioST.jpg",
-  },
+  name: "Academic background",
+  designation: "Stonehill College",
+  quote: "I've pursued computer science with a focus on cyber operations | Computer Science coursework:  Programming, Operating Systems, Data Structures, Discrete Mathematics, Theory of Computation, Cybersecurity.|Interdisciplinary Concentration: Criminology, Machine Learning, Image Processing, Image Deconstruction",
+  src: "/PortfolioST.jpg",
+},
   {
     name: "What are you doing here",
     designation: "Under Construction",

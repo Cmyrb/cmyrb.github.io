@@ -167,9 +167,9 @@ const Hero: React.FC<HeroProps> = ({ trustBadge, headline, subtitle, buttons, cl
             </h1>
           </div>
           <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-600">
-            <p className="text-lg md:text-xl lg:text-2xl text-orange-100/90 font-light leading-relaxed">
-              {subtitle}
-            </p>
+            <p className="text-lg md:text-xl lg:text-2xl text-orange-100/90 font-light leading-relaxed px-6 py-3 rounded-xl bg-black/20 backdrop-blur-sm inline-block">
+  {subtitle}
+</p>
           </div>
           {buttons && (
   <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 animate-fade-in-up animation-delay-800">

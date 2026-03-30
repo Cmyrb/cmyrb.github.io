@@ -1,0 +1,1684 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.github/
+  workflows/
+    deploy.yml
+app/
+  favicon.ico
+  globals.css
+  layout.tsx
+  page.tsx
+components/
+  ui/
+    animated-shader-hero.tsx
+    button.tsx
+    circular-testimonials.tsx
+    footer-section.tsx
+    spotlight-card.tsx
+  .gitkeep
+  about-section.tsx
+  projects-section.tsx
+  theme-provider.tsx
+hooks/
+  .gitkeep
+lib/
+  .gitkeep
+  utils.ts
+public/
+  .gitkeep
+  PortfolioHS.jpg
+  PortfolioST.jpg
+.gitignore
+.prettierignore
+.prettierrc
+components.json
+eslint.config.mjs
+index.html
+next.config.mjs
+package.json
+postcss.config.mjs
+README.md
+style.css
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="app/globals.css">
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+</file>
+
+<file path="app/layout.tsx">
+import { Geist, Geist_Mono } from "next/font/google"
+
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+
+const fontMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+})
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+    >
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  )
+}
+</file>
+
+<file path="components/ui/button.tsx">
+import * as React from "react"
+import { cva, type VariantProps } from "class-variance-authority"
+import { Slot } from "radix-ui"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        outline:
+          "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 aria-expanded:bg-secondary aria-expanded:text-secondary-foreground",
+        ghost:
+          "hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:hover:bg-muted/50",
+        destructive:
+          "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default:
+          "h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2",
+        xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
+        sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+        lg: "h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3",
+        icon: "size-8",
+        "icon-xs":
+          "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
+        "icon-sm":
+          "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
+        "icon-lg": "size-9",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+)
+
+function Button({
+  className,
+  variant = "default",
+  size = "default",
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean
+  }) {
+  const Comp = asChild ? Slot.Root : "button"
+
+  return (
+    <Comp
+      data-slot="button"
+      data-variant={variant}
+      data-size={size}
+      className={cn(buttonVariants({ variant, size, className }))}
+      {...props}
+    />
+  )
+}
+
+export { Button, buttonVariants }
+</file>
+
+<file path="components/ui/circular-testimonials.tsx">
+"use client";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+
+interface Testimonial {
+  quote: string;
+  name: string;
+  designation: string;
+  src: string;
+}
+interface Colors {
+  name?: string;
+  designation?: string;
+  testimony?: string;
+  arrowBackground?: string;
+  arrowForeground?: string;
+  arrowHoverBackground?: string;
+}
+interface FontSizes {
+  name?: string;
+  designation?: string;
+  quote?: string;
+}
+interface CircularTestimonialsProps {
+  testimonials: Testimonial[];
+  autoplay?: boolean;
+  colors?: Colors;
+  fontSizes?: FontSizes;
+}
+
+function calculateGap(width: number) {
+  const minWidth = 1024;
+  const maxWidth = 1456;
+  const minGap = 60;
+  const maxGap = 86;
+  if (width <= minWidth) return minGap;
+  if (width >= maxWidth) return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
+  return minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth));
+}
+
+export const CircularTestimonials = ({
+  testimonials,
+  autoplay = false,
+  colors = {},
+  fontSizes = {},
+}: CircularTestimonialsProps) => {
+  const colorName = colors.name ?? "#f7f7ff";
+  const colorDesignation = colors.designation ?? "#e1e1e1";
+  const colorTestimony = colors.testimony ?? "#f1f1f7";
+  const colorArrowBg = colors.arrowBackground ?? "#141414";
+  const colorArrowFg = colors.arrowForeground ?? "#f1f1f7";
+  const colorArrowHoverBg = colors.arrowHoverBackground ?? "#f97316";
+  const fontSizeName = fontSizes.name ?? "1.5rem";
+  const fontSizeDesignation = fontSizes.designation ?? "0.925rem";
+  const fontSizeQuote = fontSizes.quote ?? "1.125rem";
+
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [hoverPrev, setHoverPrev] = useState(false);
+  const [hoverNext, setHoverNext] = useState(false);
+  const [containerWidth, setContainerWidth] = useState(1200);
+
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const autoplayIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const testimonialsLength = useMemo(() => testimonials.length, [testimonials]);
+  const activeTestimonial = useMemo(() => testimonials[activeIndex], [activeIndex, testimonials]);
+
+  useEffect(() => {
+    function handleResize() {
+      if (imageContainerRef.current) {
+        setContainerWidth(imageContainerRef.current.offsetWidth);
+      }
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+ useEffect(() => {
+  if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+}, []);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [activeIndex, testimonialsLength]);
+
+  const handleNext = useCallback(() => {
+    setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+    if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+  }, [testimonialsLength]);
+
+  const handlePrev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
+    if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+  }, [testimonialsLength]);
+
+  function getImageStyle(index: number): React.CSSProperties {
+    const gap = calculateGap(containerWidth);
+    const maxStickUp = gap * 0.8;
+    const isActive = index === activeIndex;
+    const isLeft = (activeIndex - 1 + testimonialsLength) % testimonialsLength === index;
+    const isRight = (activeIndex + 1) % testimonialsLength === index;
+    if (isActive) {
+      return {
+        zIndex: 3, opacity: 1, pointerEvents: "auto",
+        transform: `translateX(0px) translateY(0px) scale(1) rotateY(0deg)`,
+        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+      };
+    }
+    if (isLeft) {
+      return {
+        zIndex: 2, opacity: 1, pointerEvents: "auto",
+        transform: `translateX(-${gap}px) translateY(-${maxStickUp}px) scale(0.85) rotateY(15deg)`,
+        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+      };
+    }
+    if (isRight) {
+      return {
+        zIndex: 2, opacity: 1, pointerEvents: "auto",
+        transform: `translateX(${gap}px) translateY(-${maxStickUp}px) scale(0.85) rotateY(-15deg)`,
+        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+      };
+    }
+    return { zIndex: 1, opacity: 0, pointerEvents: "none", transition: "all 0.8s cubic-bezier(.4,2,.3,1)" };
+  }
+
+  const quoteVariants = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -20 },
+  };
+
+  return (
+    <div className="w-full max-w-4xl px-4 py-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+        {/* Images */}
+        <div
+          ref={imageContainerRef}
+          className="relative w-full h-72 md:h-96"
+          style={{ perspective: "1000px" }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <img
+              key={testimonial.src}
+              src={testimonial.src}
+              alt={testimonial.name}
+              className="absolute w-full h-full object-cover rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
+              style={getImageStyle(index)}
+            />
+          ))}
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col justify-between">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              variants={quoteVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <h3 className="font-bold mb-1" style={{ color: colorName, fontSize: fontSizeName }}>
+                {activeTestimonial.name}
+              </h3>
+              <p className="mb-6" style={{ color: colorDesignation, fontSize: fontSizeDesignation }}>
+                {activeTestimonial.designation}
+              </p>
+              <motion.p className="leading-relaxed" style={{ color: colorTestimony, fontSize: fontSizeQuote }}>
+                {activeTestimonial.quote.split(" ").map((word, i) => (
+                  <motion.span
+                    key={i}
+                    initial={{ filter: "blur(10px)", opacity: 0, y: 5 }}
+                    animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                    transition={{ duration: 0.22, ease: "easeInOut", delay: 0.02 * i }}
+                    style={{ display: "inline-block" }}
+                  >
+                    {word}&nbsp;
+                  </motion.span>
+                ))}
+              </motion.p>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="flex gap-4 pt-8">
+            <button
+              onClick={handlePrev}
+              onMouseEnter={() => setHoverPrev(true)}
+              onMouseLeave={() => setHoverPrev(false)}
+              aria-label="Previous"
+              className="w-11 h-11 rounded-full flex items-center justify-center border-none cursor-pointer transition-colors duration-300"
+              style={{ backgroundColor: hoverPrev ? colorArrowHoverBg : colorArrowBg }}
+            >
+              <FaArrowLeft size={16} color={colorArrowFg} />
+            </button>
+            <button
+              onClick={handleNext}
+              onMouseEnter={() => setHoverNext(true)}
+              onMouseLeave={() => setHoverNext(false)}
+              aria-label="Next"
+              className="w-11 h-11 rounded-full flex items-center justify-center border-none cursor-pointer transition-colors duration-300"
+              style={{ backgroundColor: hoverNext ? colorArrowHoverBg : colorArrowBg }}
+            >
+              <FaArrowRight size={16} color={colorArrowFg} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CircularTestimonials;
+</file>
+
+<file path="components/ui/footer-section.tsx">
+'use client';
+import React from 'react';
+import type { ComponentProps, ReactNode } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
+import { Code2 } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa';
+
+const contactLinks = [
+  {
+    title: 'Email',
+    value: 'colbym0724@gmail.com',
+    href: 'mailto:colbym0724@gmail.com',
+    icon: FaEnvelope,
+  },
+  {
+    title: 'Phone',
+    value: '+1 (774) 994-0452',
+    href: 'tel:+7749940452',
+    icon: FaPhone,
+  },
+  {
+    title: 'GitHub',
+    value: 'github.com/cmyrb',
+    href: 'https://github.com/cmyrb',
+    icon: FaGithub,
+  },
+  {
+    title: 'LinkedIn',
+    value: 'linkedin.com/in/cmyrb',
+    href: 'https://linkedin.com/in/ColbyMyrbeck',
+    icon: FaLinkedin,
+  },
+];
+
+export function Footer() {
+  return (
+    <footer
+      id="contact"
+      className="relative w-full bg-[#0a0a0f] border-t border-white/5 px-6 py-16 lg:py-20"
+    >
+      {/* Top glow line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px w-1/3 bg-orange-500/30 blur-sm rounded-full" />
+
+      <div className="max-w-6xl mx-auto">
+
+        {/* Header */}
+        <AnimatedContainer delay={0.1} className="text-center mb-14">
+          <p className="text-orange-400 text-sm uppercase tracking-widest mb-3 font-medium">
+            Get In Touch
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Contact Me
+          </h2>
+          <p className="text-white/40 text-lg max-w-md mx-auto">
+            Open to opportunities, collaborations, or any questions.
+          </p>
+        </AnimatedContainer>
+
+        {/* Contact cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+          {contactLinks.map((contact, index) => (
+            <AnimatedContainer key={contact.title} delay={0.2 + index * 0.1}>
+              <a
+                href={contact.href}
+                target={contact.href.startsWith('http') ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-3 p-5 rounded-2xl bg-white/3 border border-white/8 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center group-hover:bg-orange-500/20 transition-colors duration-300">
+                  <contact.icon className="w-5 h-5 text-orange-400" />
+                </div>
+                <div>
+                  <p className="text-white/40 text-xs uppercase tracking-widest mb-1">
+                    {contact.title}
+                  </p>
+                  <p className="text-white/80 text-sm font-medium group-hover:text-white transition-colors duration-300 break-all">
+                    {contact.value}
+                  </p>
+                </div>
+              </a>
+            </AnimatedContainer>
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <AnimatedContainer delay={0.6}>
+          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-7 h-7 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+                <Code2 className="w-4 h-4 text-orange-400" />
+              </div>
+              <span className="text-white/20 text-xs">
+                © {new Date().getFullYear()} Colby. Built with Next.js · TypeScript · Tailwind CSS
+              </span>
+            </div>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="text-white/20 hover:text-orange-400 text-xs transition-colors duration-300"
+            >
+              ↑ Back to top
+            </button>
+          </div>
+        </AnimatedContainer>
+
+      </div>
+    </footer>
+  );
+}
+
+type ViewAnimationProps = {
+  delay?: number;
+  className?: ComponentProps<typeof motion.div>['className'];
+  children: ReactNode;
+};
+
+function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
+  const shouldReduceMotion = useReducedMotion();
+  if (shouldReduceMotion) return <>{children}</>;
+  return (
+    <motion.div
+      initial={{ filter: 'blur(4px)', translateY: -8, opacity: 0 }}
+      whileInView={{ filter: 'blur(0px)', translateY: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay, duration: 0.8 }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+</file>
+
+<file path="components/.gitkeep">
+
+</file>
+
+<file path="components/theme-provider.tsx">
+"use client"
+
+import * as React from "react"
+import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
+
+function ThemeProvider({
+  children,
+  ...props
+}: React.ComponentProps<typeof NextThemesProvider>) {
+  return (
+    <NextThemesProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+      {...props}
+    >
+      <ThemeHotkey />
+      {children}
+    </NextThemesProvider>
+  )
+}
+
+function isTypingTarget(target: EventTarget | null) {
+  if (!(target instanceof HTMLElement)) {
+    return false
+  }
+
+  return (
+    target.isContentEditable ||
+    target.tagName === "INPUT" ||
+    target.tagName === "TEXTAREA" ||
+    target.tagName === "SELECT"
+  )
+}
+
+function ThemeHotkey() {
+  const { resolvedTheme, setTheme } = useTheme()
+
+  React.useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.defaultPrevented || event.repeat) {
+        return
+      }
+
+      if (event.metaKey || event.ctrlKey || event.altKey) {
+        return
+      }
+
+      if (event.key.toLowerCase() !== "d") {
+        return
+      }
+
+      if (isTypingTarget(event.target)) {
+        return
+      }
+
+      setTheme(resolvedTheme === "dark" ? "light" : "dark")
+    }
+
+    window.addEventListener("keydown", onKeyDown)
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown)
+    }
+  }, [resolvedTheme, setTheme])
+
+  return null
+}
+
+export { ThemeProvider }
+</file>
+
+<file path="hooks/.gitkeep">
+
+</file>
+
+<file path="lib/.gitkeep">
+
+</file>
+
+<file path="lib/utils.ts">
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+</file>
+
+<file path="public/.gitkeep">
+
+</file>
+
+<file path=".gitignore">
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+</file>
+
+<file path=".prettierignore">
+dist/
+node_modules/
+.next/
+.turbo/
+coverage/
+pnpm-lock.yaml
+.pnpm-store/
+</file>
+
+<file path=".prettierrc">
+{
+  "endOfLine": "lf",
+  "semi": false,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "printWidth": 80,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "app/globals.css",
+  "tailwindFunctions": ["cn", "cva"]
+}
+</file>
+
+<file path="components.json">
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "radix-nova",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {}
+}
+</file>
+
+<file path="eslint.config.mjs">
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.mjs">
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
+};
+
+export default nextConfig;
+</file>
+
+<file path="postcss.config.mjs">
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+}
+
+export default config
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path=".github/workflows/deploy.yml">
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+</file>
+
+<file path="components/ui/animated-shader-hero.tsx">
+"use client";
+import React, { useRef, useEffect } from 'react';
+
+interface HeroProps {
+  trustBadge?: { text: string; icons?: string[]; };
+  headline: { line1: string; line2: string; };
+  subtitle: string;
+ buttons?: {
+  primary?: { text: string; onClick?: () => void; };
+  secondary?: { text: string; onClick?: () => void; };
+  tertiary?: { text: string; onClick?: () => void; };
+};
+  className?: string;
+}
+
+const defaultShaderSource = `#version 300 es
+precision highp float;
+out vec4 O;
+uniform vec2 resolution;
+uniform float time;
+#define FC gl_FragCoord.xy
+#define T time
+#define R resolution
+#define MN min(R.x,R.y)
+float rnd(vec2 p) {
+  p=fract(p*vec2(12.9898,78.233));
+  p+=dot(p,p+34.56);
+  return fract(p.x*p.y);
+}
+float noise(in vec2 p) {
+  vec2 i=floor(p), f=fract(p), u=f*f*(3.-2.*f);
+  float a=rnd(i), b=rnd(i+vec2(1,0)), c=rnd(i+vec2(0,1)), d=rnd(i+1.);
+  return mix(mix(a,b,u.x),mix(c,d,u.x),u.y);
+}
+float fbm(vec2 p) {
+  float t=.0, a=1.; mat2 m=mat2(1.,-.5,.2,1.2);
+  for (int i=0; i<5; i++) { t+=a*noise(p); p*=2.*m; a*=.5; }
+  return t;
+}
+float clouds(vec2 p) {
+  float d=1., t=.0;
+  for (float i=.0; i<3.; i++) {
+    float a=d*fbm(i*10.+p.x*.2+.2*(1.+i)*p.y+d+i*i+p);
+    t=mix(t,d,a); d=a; p*=2./(i+1.);
+  }
+  return t;
+}
+void main(void) {
+  vec2 uv=(FC-.5*R)/MN,st=uv*vec2(2,1);
+  vec3 col=vec3(0);
+  float bg=clouds(vec2(st.x+T*.5,-st.y));
+  uv*=1.-.3*(sin(T*.2)*.5+.5);
+  for (float i=1.; i<12.; i++) {
+    uv+=.1*cos(i*vec2(.1+.01*i, .8)+i*i+T*.5+.1*uv.x);
+    vec2 p=uv;
+    float d=length(p);
+    col+=.00125/d*(cos(sin(i)*vec3(1,2,3))+1.);
+    float b=noise(i+p+bg*1.731);
+    col+=.002*b/length(max(p,vec2(b*p.x*.02,p.y)));
+    col=mix(col,vec3(bg*.25,bg*.137,bg*.05),d);
+  }
+  O=vec4(col,1);
+}`;
+
+const useShaderBackground = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animationFrameRef = useRef<number>(0);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const gl = canvas.getContext('webgl2');
+    if (!gl) return;
+    const dpr = Math.max(1, 0.5 * window.devicePixelRatio);
+    const resize = () => {
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    };
+    resize();
+    const vertexSrc = `#version 300 es
+precision highp float;
+in vec4 position;
+void main(){ gl_Position = position; }`;
+    const createShader = (type: number, src: string) => {
+      const shader = gl.createShader(type)!;
+      gl.shaderSource(shader, src);
+      gl.compileShader(shader);
+      return shader;
+    };
+    const vs = createShader(gl.VERTEX_SHADER, vertexSrc);
+    const fs = createShader(gl.FRAGMENT_SHADER, defaultShaderSource);
+    const program = gl.createProgram()!;
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,-1,-1,1,1,1,-1]), gl.STATIC_DRAW);
+    const position = gl.getAttribLocation(program, 'position');
+    gl.enableVertexAttribArray(position);
+    gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+    const uRes = gl.getUniformLocation(program, 'resolution');
+    const uTime = gl.getUniformLocation(program, 'time');
+    const loop = (now: number) => {
+      gl.clearColor(0, 0, 0, 1);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(program);
+      gl.uniform2f(uRes, canvas.width, canvas.height);
+      gl.uniform1f(uTime, now * 1e-3);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+      animationFrameRef.current = requestAnimationFrame(loop);
+    };
+    animationFrameRef.current = requestAnimationFrame(loop);
+    window.addEventListener('resize', resize);
+    return () => {
+      window.removeEventListener('resize', resize);
+      if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
+      gl.deleteProgram(program);
+    };
+  }, []);
+
+  return canvasRef;
+};
+
+const Hero: React.FC<HeroProps> = ({ trustBadge, headline, subtitle, buttons, className = "" }) => {
+  const canvasRef = useShaderBackground();
+  return (
+    <div className={`relative w-full h-screen overflow-hidden bg-black ${className}`}>
+      <style>{`
+        @keyframes fade-in-down {
+          from { opacity: 0; transform: translateY(-20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fade-in-up {
+          from { opacity: 0; transform: translateY(30px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down { animation: fade-in-down 0.8s ease-out forwards; }
+        .animate-fade-in-up   { animation: fade-in-up 0.8s ease-out forwards; opacity: 0; }
+        .animation-delay-200  { animation-delay: 0.2s; }
+        .animation-delay-400  { animation-delay: 0.4s; }
+        .animation-delay-600  { animation-delay: 0.6s; }
+        .animation-delay-800  { animation-delay: 0.8s; }
+      `}</style>
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full touch-none"
+        style={{ background: 'black' }}
+      />
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
+        {trustBadge && (
+          <div className="mb-8 animate-fade-in-down">
+            <div className="flex items-center gap-2 px-6 py-3 bg-orange-500/10 backdrop-blur-md border border-orange-300/30 rounded-full text-sm">
+              {trustBadge.icons?.map((icon, i) => <span key={i}>{icon}</span>)}
+              <span className="text-orange-100">{trustBadge.text}</span>
+            </div>
+          </div>
+        )}
+        <div className="text-center space-y-6 max-w-5xl mx-auto px-4">
+          <div className="space-y-2">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-fade-in-up animation-delay-200">
+              {headline.line1}
+            </h1>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 bg-clip-text text-transparent animate-fade-in-up animation-delay-400">
+              {headline.line2}
+            </h1>
+          </div>
+          <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-600">
+            <p className="text-lg md:text-xl lg:text-2xl text-orange-100/90 font-light leading-relaxed">
+              {subtitle}
+            </p>
+          </div>
+          {buttons && (
+  <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 animate-fade-in-up animation-delay-800">
+    {buttons.primary && (
+      <button
+        onClick={buttons.primary.onClick}
+        className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-black rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/25"
+      >
+        {buttons.primary.text}
+      </button>
+    )}
+    {buttons.secondary && (
+      <button
+        onClick={buttons.secondary.onClick}
+        className="px-8 py-4 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-300/30 hover:border-orange-300/50 text-orange-100 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+      >
+        {buttons.secondary.text}
+      </button>
+    )}
+    {buttons.tertiary && (
+      <button
+        onClick={buttons.tertiary.onClick}
+        className="px-8 py-4 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-300/30 hover:border-orange-300/50 text-orange-100 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+>
+        {buttons.tertiary.text}
+      </button>
+    )}
+  </div>
+)}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Hero;
+</file>
+
+<file path="index.html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Colby's Site</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Hey, I'm Colby</h1>
+</body>
+</html>
+</file>
+
+<file path="package.json">
+{
+  "name": "portfolio",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "format": "prettier --write \"**/*.{ts,tsx}\"",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.7.0",
+    "motion": "^12.38.0",
+    "next": "16.1.7",
+    "next-themes": "^0.4.6",
+    "radix-ui": "^1.4.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-icons": "^5.6.0",
+    "shadcn": "^4.1.1",
+    "tailwind-merge": "^3.5.0",
+    "tw-animate-css": "^1.4.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.1.7",
+    "postcss": "^8",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  }
+}
+</file>
+
+<file path="README.md">
+# Next.js template
+
+This is a Next.js template with shadcn/ui.
+
+## Adding components
+
+To add components to your app, run the following command:
+
+```bash
+npx shadcn@latest add button
+```
+
+This will place the ui components in the `components` directory.
+
+## Using components
+
+To use the components in your app, import them as follows:
+
+```tsx
+import { Button } from "@/components/ui/button";
+```
+</file>
+
+<file path="style.css">
+body {
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  background: #fff;
+  color: #111;
+}
+</file>
+
+<file path="components/ui/spotlight-card.tsx">
+"use client";
+import React, { useEffect, useRef, ReactNode } from 'react';
+
+interface GlowCardProps {
+  children?: ReactNode;
+  className?: string;
+  glowColor?: "blue" | "purple" | "green" | "orange" | "red";
+}
+
+const glowColorMap = {
+  orange: { base: "rgba(249, 115, 22, 0.15)", spread: "rgba(249, 115, 22, 0.4)" },
+  green:  { base: "rgba(34, 197, 94, 0.15)",  spread: "rgba(34, 197, 94, 0.4)"  },
+  red:    { base: "rgba(239, 68, 68, 0.15)",   spread: "rgba(239, 68, 68, 0.4)"  },
+  blue:   { base: "rgba(59, 130, 246, 0.15)",  spread: "rgba(59, 130, 246, 0.4)" },
+  purple: { base: "rgba(168, 85, 247, 0.15)",  spread: "rgba(168, 85, 247, 0.4)" },
+};
+
+const GlowCard: React.FC<GlowCardProps> = ({
+  children,
+  className = '',
+  glowColor = 'orange',
+}) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const syncPointer = (e: PointerEvent) => {
+      if (cardRef.current) {
+        cardRef.current.style.setProperty('--x', e.clientX.toFixed(2));
+        cardRef.current.style.setProperty('--xp', (e.clientX / window.innerWidth).toFixed(2));
+        cardRef.current.style.setProperty('--y', e.clientY.toFixed(2));
+        cardRef.current.style.setProperty('--yp', (e.clientY / window.innerHeight).toFixed(2));
+      }
+    };
+    document.addEventListener('pointermove', syncPointer);
+    return () => document.removeEventListener('pointermove', syncPointer);
+  }, []);
+
+  const { base, spread } = glowColorMap[glowColor];
+
+  return (
+    <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        [data-glow]::before,
+        [data-glow]::after {
+          pointer-events: none;
+          content: "";
+          position: absolute;
+          inset: calc(var(--border-size) * -1);
+          border: var(--border-size) solid transparent;
+          border-radius: calc(var(--radius) * 1px);
+          background-attachment: fixed;
+          background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+          mask-clip: padding-box, border-box;
+          mask-composite: intersect;
+        }
+        [data-glow]::before {
+          background-image: radial-gradient(
+            calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
+            calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+            hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 50) * 1%) / var(--border-spot-opacity, 1)), transparent 100%
+          );
+          filter: brightness(2);
+        }
+        [data-glow]::after {
+          background-image: radial-gradient(
+            calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
+            calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+            hsl(0 100% 100% / var(--border-light-opacity, 1)), transparent 100%
+          );
+        }
+        [data-glow] [data-glow] {
+          position: absolute;
+          inset: 0;
+          will-change: filter;
+          opacity: var(--outer, 1);
+          border-radius: calc(var(--radius) * 1px);
+          border-width: calc(var(--border-size) * 20);
+          filter: blur(calc(var(--border-size) * 10));
+          background: none;
+          pointer-events: none;
+          border: none;
+        }
+        [data-glow] > [data-glow]::before {
+          inset: -10px;
+          border-width: 10px;
+        }
+      `}} />
+      <div
+        ref={cardRef}
+        data-glow
+        style={{
+          '--base': base,
+          '--spread': spread,
+          '--radius': '14',
+          '--border': '2',
+          '--backdrop': 'hsl(0 0% 8% / 0.8)',
+          '--backup-border': 'hsl(0 0% 20% / 0.5)',
+          '--size': '250',
+          '--outer': '1',
+          '--border-size': 'calc(var(--border, 2) * 1px)',
+          '--spotlight-size': 'calc(var(--size, 150) * 1px)',
+          '--hue': 'calc(var(--base) + (var(--xp, 0) * var(--spread, 0)))',
+          backgroundImage: `radial-gradient(
+            var(--spotlight-size) var(--spotlight-size) at
+            calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
+            hsl(var(--hue, 210) calc(var(--saturation, 100) * 1%) calc(var(--lightness, 70) * 1%) / var(--bg-spot-opacity, 0.08)), transparent
+          )`,
+          backgroundColor: 'var(--backdrop, transparent)',
+          backgroundSize: 'calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)))',
+          backgroundPosition: '50% 50%',
+          backgroundAttachment: 'fixed',
+          border: 'var(--border-size) solid var(--backup-border)',
+          position: 'relative',
+          touchAction: 'none',
+        } as React.CSSProperties}
+        className={`rounded-2xl relative shadow-[0_1rem_2rem_-1rem_rgba(0,0,0,0.8)] backdrop-blur-sm ${className}`}
+      >
+        <div data-glow></div>
+        {children}
+      </div>
+    </>
+  );
+};
+
+export { GlowCard };
+</file>
+
+<file path="components/about-section.tsx">
+"use client";
+import { CircularTestimonials } from "@/components/ui/circular-testimonials";
+
+const slides = [
+  {
+    name: "Who I Am",
+    designation: "Colby Myrbeck",
+    quote:
+      "I’m a hands-on problem solver with experience in mechanical work, security, and technical projects. As a college student and former collegiate athlete, I can communicate clearly and effectively under pressure while adapting quickly to new challenges.",
+    src: "/PortfolioHS.jpg",
+  },
+  {
+    name: "Academic background",
+    designation: "Stonehill College",
+    quote:
+      "I've pursued computer science with a focus on cyber operations — Programming, Operating Systems, Data Structures, Discrete Mathematics, Theory of Computation, Cybersecurity. Interdisciplinary Concentration: Criminology, Machine Learning, Image Processing, Image Deconstruction ",
+    src: "/PortfolioST.jpg",
+  },
+  {
+    name: "What are you doing here",
+    designation: "Under Construction",
+    quote:
+      "Nothing here for now...",
+    src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop",
+  },
+  
+ 
+];
+
+export default function AboutSection() {
+  return (
+    <section
+      id="about"
+      className="min-h-screen bg-[#0a0a0f] flex flex-col items-center justify-center px-6 py-24 border-t border-white/5"
+    >
+      {/* Section header */}
+      <div className="max-w-6xl w-full mx-auto mb-12 text-center">
+        <p className="text-orange-400 text-sm uppercase tracking-widest mb-3 font-medium">
+          Learn A Bit
+        </p>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          About Me
+        </h2>
+       
+      </div>
+
+      {/* Carousel */}
+      <div className="w-full max-w-6xl mx-auto flex justify-center">
+        <CircularTestimonials
+          testimonials={slides}
+          autoplay={true}
+          colors={{
+            name: "#ffffff",
+            designation: "#f97316",
+            testimony: "rgba(255,255,255,0.65)",
+            arrowBackground: "#1a1a2e",
+            arrowForeground: "#f1f1f7",
+            arrowHoverBackground: "#f97316",
+          }}
+          fontSizes={{
+            name: "24px",
+            designation: "14px",
+            quote: "17px",
+          }}
+        />
+      </div>
+
+      {/* Dot indicators */}
+      <div className="flex gap-2 mt-8">
+        {slides.map((_, i) => (
+          <div
+            key={i}
+            className="w-1.5 h-1.5 rounded-full bg-white/20"
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="components/projects-section.tsx">
+"use client";
+import { GlowCard } from "@/components/ui/spotlight-card";
+import { ExternalLink, Code2, GitBranch } from "lucide-react";
+
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  github?: string;
+  live?: string;
+  glowColor?: 'blue' | 'purple' | 'green' | 'red' | 'orange';
+}
+
+const projects: Project[] = [
+  {
+    title: "Project One",
+    description: "Details",
+    tags: ["React", "Node.js", "PostgreSQL"],
+    github: "https://github.com/cmyrb",
+    glowColor: "orange",
+  },
+  {
+    title: "Project Two",
+    description: "Details",
+    tags: ["Python", "FastAPI", "Docker"],
+    github: "https://github.com/cmyrb",
+    live: "#",
+    glowColor: "purple",
+  },
+  {
+    title: "Project Three",
+    description: "Details",
+    tags: ["TypeScript", "Next.js", "Tailwind"],
+    github: "https://github.com/cmyrb",
+    live: "#",
+    glowColor: "blue",
+  },
+];
+
+export default function ProjectsSection() {
+  return (
+    <section
+      id="projects"
+      className="min-h-screen bg-[#0a0a0f] px-6 py-24"
+    >
+      {/* Section header */}
+      <div className="max-w-6xl mx-auto mb-16 text-center">
+        <p className="text-orange-400 text-sm uppercase tracking-widest mb-3 font-medium">
+          My Work
+        </p>
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          Featured Projects
+        </h2>
+        <p className="text-white/40 text-lg max-w-xl mx-auto">
+          A selection of things I've built. Each one taught me something new.
+        </p>
+      </div>
+
+      {/* Cards row */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, i) => (
+          <GlowCard
+            key={i}
+            glowColor={project.glowColor as "green" | "orange" | "red"}
+            className="p-6 flex flex-col gap-4 min-h-[320px]"
+          >
+            {/* Icon */}
+            <div className="w-10 h-10 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+              <Code2 className="w-5 h-5 text-orange-400" />
+            </div>
+
+            {/* Title + description */}
+            <div className="flex-1">
+              <h3 className="text-white font-semibold text-lg mb-2">
+                {project.title}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag, j) => (
+                <span
+                  key={j}
+                  className="text-xs px-2 py-1 rounded-full bg-white/5 text-white/60 border border-white/10"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Links */}
+            <div className="flex gap-3 pt-2 border-t border-white/10">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-white/50 hover:text-white text-sm transition-colors"
+                >
+                  <GitBranch className="w-4 h-4" />
+                  Code
+                </a>
+              )}
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-white/50 hover:text-orange-400 text-sm transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Live
+                </a>
+              )}
+            </div>
+          </GlowCard>
+        ))}
+      </div>
+    </section>
+  );
+}
+</file>
+
+<file path="app/page.tsx">
+"use client";
+
+import Hero from "@/components/ui/animated-shader-hero";
+import AboutSection from "@/components/about-section";
+import ProjectsSection from "@/components/projects-section";
+import { Footer } from "@/components/ui/footer-section";
+
+export default function Home() {
+  return (
+    <main>
+      <Hero
+        trustBadge={{
+          text: "- Cyber Operations · Boston, MA -",
+          //icons: ["⚡"]
+        }}
+        headline={{
+          line1: "Colby",
+          line2: "Myrbeck"
+        }}
+        subtitle="Seeking Cybersecurity & Software / System Engineering roles."
+        buttons={{
+  primary: {
+    text: "View Projects",
+    onClick: () => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+  },
+  secondary: {
+    text: "About Me",
+    onClick: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+  },
+  tertiary: {
+    text: "Contact Me",
+    onClick: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  }
+}}
+      />
+      <AboutSection />
+      <ProjectsSection />
+      <Footer />
+    </main>
+  );
+}
+</file>
+
+</files>
