@@ -61,7 +61,7 @@ export default function ProjectsSection() {
         {projects.map((project, i) => (
           <GlowCard
             key={i}
-            glowColor={project.glowColor ?? "orange"}
+            glowColor={project.glowColor as "green" | "orange" | "red"}
             className="p-6 flex flex-col gap-4 min-h-[320px]"
           >
             {/* Icon */}

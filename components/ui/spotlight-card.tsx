@@ -4,15 +4,15 @@ import React, { useEffect, useRef, ReactNode } from 'react';
 interface GlowCardProps {
   children?: ReactNode;
   className?: string;
-  glowColor?: 'green' | 'red' | 'orange';
+  glowColor?: "blue" | "purple" | "green" | "orange" | "red";
 }
 
 const glowColorMap = {
-  blue:   { base: 220, spread: 200 },
-  purple: { base: 280, spread: 300 },
-  green:  { base: 120, spread: 200 },
-  red:    { base: 0,   spread: 200 },
-  orange: { base: 30,  spread: 200 },
+  orange: { base: "rgba(249, 115, 22, 0.15)", spread: "rgba(249, 115, 22, 0.4)" },
+  green:  { base: "rgba(34, 197, 94, 0.15)",  spread: "rgba(34, 197, 94, 0.4)"  },
+  red:    { base: "rgba(239, 68, 68, 0.15)",   spread: "rgba(239, 68, 68, 0.4)"  },
+  blue:   { base: "rgba(59, 130, 246, 0.15)",  spread: "rgba(59, 130, 246, 0.4)" },
+  purple: { base: "rgba(168, 85, 247, 0.15)",  spread: "rgba(168, 85, 247, 0.4)" },
 };
 
 const GlowCard: React.FC<GlowCardProps> = ({
