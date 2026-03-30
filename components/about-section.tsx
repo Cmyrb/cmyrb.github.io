@@ -6,7 +6,7 @@ const slides = [
     name: "Who I Am",
     designation: "Colby Myrbeck",
     quote:
-      "I’m a hands-on problem solver with experience in mechanical work, security, and technical projects. As a college student and former collegiate athlete, communicate clearly and effectively under pressure and adapt quickly to new challenges.",
+      "I’m a hands-on problem solver with experience in mechanical work, security, and technical projects. As a college student and former collegiate athlete, I can communicate clearly and effectively under pressure while adapting quickly to new challenges.",
     src: "/PortfolioHS.jpg",
   },
   {

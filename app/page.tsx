@@ -14,10 +14,10 @@ export default function Home() {
           icons: ["⚡"]
         }}
         headline={{
-          line1: "Welcome to",
-          line2: "Colby's Portfolio"
+          line1: "Colby",
+          line2: "Myrbeck"
         }}
-        subtitle="Seeking Cybersecurity & Softeware / System Engineering roles."
+        subtitle="Seeking Cybersecurity & Software / System Engineering roles."
         buttons={{
   primary: {
     text: "View Projects",
