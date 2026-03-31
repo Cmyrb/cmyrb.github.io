@@ -4,6 +4,7 @@ import Hero from "@/components/ui/animated-shader-hero";
 import AboutSection from "@/components/about-section";
 import ProjectsSection from "@/components/projects-section";
 import { Footer } from "@/components/ui/footer-section";
+import ResumeSection from "@/components/resume-section";
 
 export default function Home() {
   return (
@@ -35,6 +36,7 @@ export default function Home() {
       />
       <AboutSection />
       <ProjectsSection />
+      <ResumeSection />
       <Footer />
     </main>
   );
