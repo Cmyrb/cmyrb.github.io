@@ -13,23 +13,23 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Project One",
-    description: "Details",
-    tags: ["React", "Node.js", "PostgreSQL"],
-    github: "https://github.com/cmyrb",
+    title: "Holocron (Senior Capstone)",
+    description: "*IN PROGRESS* -> A web based Qualitative tagging system for researchers to organize and sort their data.",
+    tags: ["React", "Node.js", "Django", "Docker", "Python"],
+    github: "https://github.com/stonehill-scholarships",
     glowColor: "orange",
   },
   {
-    title: "Project Two",
-    description: "Details",
+    title: "Log Analysis & Detection Tool",
+    description: "*IN PROGRESS* -> Tool that parses authentication and system logs, identifies suspicious activity (e.g., brute-force attempts, backdoor exploits), and outputs detections with context. ",
     tags: ["Python", "FastAPI", "Docker"],
     github: "https://github.com/cmyrb",
     live: "#",
     glowColor: "purple",
   },
   {
-    title: "Project Three",
-    description: "Details",
+    title: "More On The Way!",
+    description: "Dont worry, I'm always building something new. Check back soon for updates.",
     tags: ["TypeScript", "Next.js", "Tailwind"],
     github: "https://github.com/cmyrb",
     live: "#",
