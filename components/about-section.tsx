@@ -15,13 +15,13 @@ const slides = [
   quote: "I've pursued computer science with a focus on cyber operations | Computer Science coursework:  Programming, Operating Systems, Data Structures, Discrete Mathematics, Theory of Computation, Cybersecurity.|Interdisciplinary Concentration: Criminology, Machine Learning, Image Processing, Image Deconstruction",
   src: "/PortfolioST.jpg",
 },
-  {
+  /*{
     name: "What are you doing here",
     designation: "Under Construction",
     quote:
       "Nothing here for now...",
     src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop",
-  },
+  },*/
   
  
 ];
